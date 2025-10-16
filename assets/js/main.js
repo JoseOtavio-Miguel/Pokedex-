@@ -23,6 +23,8 @@ let offset = 0;
 
 const maxRecords = 248;
 
+
+
 function showPokemonDetails(pokemon) {
     const detailsContainer = document.getElementById('pokemonDetails');
     detailsContainer.innerHTML = `
@@ -36,39 +38,94 @@ function showPokemonDetails(pokemon) {
                     </ol>
                     <img class="pokemonImageDetail" src="${pokemon.photo}" alt="${pokemon.name}">
                 </div>
+
                 <div class="extra-info">
-                    <dl>
-                        <div class="info-item">
-                            <dt>Species</dt>
-                            <dd>${pokemon.type || 'Unknown'}</dd>
+                    <div class="tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="about">About</button>
+                            <button class="tab-btn" data-tab="stats">Base Stats</button>
+                            <button class="tab-btn" data-tab="evolution">Evolution</button>
+                            <button class="tab-btn" data-tab="moves">Moves</button>
                         </div>
-                        <div class="info-item">
-                            <dt>Height</dt>
-                            <dd>${pokemon.height || '?'} m</dd>
+                        <div class="tab-content active" id="about">
+                            <dl>
+                            <div class="info-item">
+                                    <dt>Species</dt>
+                                    <dd>${pokemon.type || 'Unknown'}</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>Gender</dt>
+                                    <dd>${pokemon.gender || 'Unknown'}</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>Height</dt>
+                                    <dd>${(pokemon.height * 3.28084).toFixed(2)} ft (${(pokemon.height * 100).toFixed(2)} cm)</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>Weight</dt>
+                                    <dd>${pokemon.weight || '?'} kg (${(pokemon.weight * 2.20462).toFixed(2)} lbs)</dd>
+                                </div>
+                                <h3>Breeding</h3>
+                                <div class="info-item">
+                                    <dt>Abilities</dt>
+                                    <dd>${pokemon.abilities?.join(', ') || 'Unknown'}</dd>
+                                </div>
+                                <div class="info-item">
+                                    <dt>Egg Groups</dt>
+                                    <dd>${pokemon.egg_groups?.join(', ') || 'Unknown'}</dd>
+                                </div>
+                            </dl>
                         </div>
-                        <div class="info-item">
-                            <dt>Weight</dt>
-                            <dd>${pokemon.weight || '?'} kg</dd>
+                        <div class="tab-content" id="stats">
+                            <h3>Base Stats</h3>
+                            <div class="stats-list">
+                                ${pokemon.stats.map(stat => `
+                                    <div class="stat-item">
+                                        <span class="stat-name">${stat.stat.name.toUpperCase()}</span>
+                                        <div class="stat-bar">
+                                            <div class="fill" style="width: ${stat.base_stat / 2}%"></div>
+                                        </div>
+                                        <span class="stat-value">${stat.base_stat}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <dt>Abilities</dt>
-                            <dd>${pokemon.abilities?.join(', ') || 'Unknown'}</dd>
-                        </div>
-                        <div class="info-item">
-                            <dt>Gender</dt>
-                            <dd>${pokemon.gender || 'Unknown'}</dd>
-                        </div>
-                        <div class="info-item">
-                            <dt>Egg Groups</dt>
-                            <dd>${pokemon.egg_groups?.join(', ') || 'Unknown'}</dd>
-                        </div>
-                    </dl>
+                    </div>
                 </div>
             </li>
         </div>
     `;
 }
 
+
+document.addEventListener("click", e => {
+  if (e.target.classList.contains("tab-btn")) {
+    const tabs = e.target.closest(".tabs");
+    const target = e.target.dataset.tab;
+
+    tabs.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    tabs.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+    e.target.classList.add("active");
+    tabs.querySelector(`#${target}`).classList.add("active");
+  }
+});
+
+
+// const buttons = document.querySelectorAll(".tab-btn");
+// const contents = document.querySelectorAll(".tab-content");
+
+// buttons.forEach(btn => {
+//   btn.addEventListener("click", () => {
+//     // remove 'active' de todos
+//     buttons.forEach(b => b.classList.remove("active"));
+//     contents.forEach(c => c.classList.remove("active"));
+
+//     // ativa o botão e o conteúdo clicado
+//     btn.classList.add("active");
+//     document.getElementById(btn.dataset.tab).classList.add("active");
+//   });
+// });
 
 
 

@@ -18,7 +18,26 @@ function convertDetailToPokemon(pokemonDetails) {
     // pokemon.types = pokemonDetails.types.map((typeSlot) => typeSlot.type.name)
     // pokemon.type = pokemon.types.get(0)
 
+
+    pokemon.stats = pokemonDetails.stats.map(s => ({
+        base_stat: s.base_stat,
+        stat: {name: s.stat.name}
+    }))
+
     return pokemon
+}
+
+async function getPokemonStats(name) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const data = await response.json();
+
+    const stats = data.stats.map(s => ({
+        name: s.stat.name,
+        value: s.base_stat 
+    }));
+
+    const total = stats.reduce((sum, s) => sum + s.value, 0);
+
 }
 
 pokeApi.getPokemonDetail = (pokemon) => {
@@ -102,3 +121,5 @@ pokeApi.getPokemonStats = (pokemon) => {
             }
         })
 }
+
+
