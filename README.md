@@ -26,7 +26,7 @@ A aplicação exibe informações detalhadas sobre os Pokémon, como **tipos, ha
 
 ## 🧱 Estrutura do Projeto
 
-📁 pokedex/
+📁 pokedex/ <br>
 │ <br>
 ├── 📄 index.html <br>
 ├── 📄 style.css <br>
