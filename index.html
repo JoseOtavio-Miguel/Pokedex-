@@ -19,27 +19,39 @@
     <link rel="stylesheet" href="./assets/css/global.css">
 
     <!-- Pokemons CSS -->
+     <link rel="stylesheet" href="assets/css/pokemonDetails.css">
     <link rel="stylesheet" href="assets/css/pokedex.css">
 
 </head>
 <body>
-    <section class="content"> 
-        <h1>Pokedex</h1>
-        <ol id="pokemonList" class ="pokemons">
-                <!-- ..... Pokemon List ...... -->
-        </ol>
+    <div class="pokedex-container"> <!-- Novo container flex -->
+        <section class="content"> 
+            <div class="PokedexBackground">
+                <h1>Pokedex</h1>
+                <ol id="pokemonList" class="pokemons"> <!-- ..... Pokemon List ...... --></ol>
 
-        <div class="paginator">
-            <button id="loadMoreButton" type="button">
-                Load More
-            </button>
-        </div>
-    </section>
+                <div class="paginator">
+                    <button id="loadMoreButton" type="button">
+                        Load More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="PokedexBackground">
+                <h1>Pokemon Details</h1>
+                <ol id="pokemonDetails" class="pokemons"><!-- ..... Pokemon Details ...... --></ol>
+            </div>
+        </section>
+    </div>
 
     <!-- Main JS -->
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/pokemon-panel.js"></script> 
+
     
 </body>
 </html>
