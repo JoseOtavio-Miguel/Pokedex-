@@ -1,0 +1,122 @@
+
+
+.PokemonShowDetail {
+    padding: 10px;
+}
+
+
+.PokemonShowDetail h2 {
+    color: white;
+    text-transform: capitalize;
+}
+
+.PokemonShowDetail span {
+    text-align: right;
+}
+
+.PokemonShowDetail .number {
+    color: black;
+    text-align: right;
+    font-size: .8rem;
+}
+
+
+.PokemonShowDetail .detail .types {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+.PokemonShowDetail .detail .types .type {
+    border-radius: 1rem;
+    color: #fff;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    text-align: center;
+
+    filter: brightness(1.1);
+
+}
+
+.extra-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.extra-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.extra-info strong {
+    color: #000000;
+    opacity: 0.4;
+    font-weight: 500;
+    margin-left: 6px;
+}
+
+
+
+.pokedex-container {
+    display: flex;
+    justify-content: center;  
+    align-items: flex-start;
+    gap: 2rem; 
+    flex-wrap: wrap; 
+    padding: 2rem;
+}
+
+.PokedexBackground {
+    flex: 1 1 400px; 
+    max-width: 500px;
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.pokemon-detail {
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    width: 300px;
+    height: 500px;
+}
+
+.detail, .extra-info {
+    padding: 10px;
+}
+
+.types li {
+    margin-right: 5px;
+}
+
+.extra-info dl {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* espaço entre linhas */
+    padding: 10px 0;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-item dt {
+    font-weight: bold;
+    color: #555;
+}
+
+.info-item dd {
+    margin: 0;
+    text-align: right;
+    color: #333;
+}
