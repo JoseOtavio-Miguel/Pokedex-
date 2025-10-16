@@ -27,12 +27,12 @@ A aplicação exibe informações detalhadas sobre os Pokémon, como **tipos, ha
 ## 🧱 Estrutura do Projeto
 
 📁 pokedex/
-│
-├── 📄 index.html
-├── 📄 style.css
-├── 📄 script.js
-├── 📄 pokemon-model.js
-└── 📄 README.md
+│ <br>
+├── 📄 index.html <br>
+├── 📄 style.css <br>
+├── 📄 script.js <br>
+├── 📄 pokemon-model.js <br>
+└── 📄 README.md <br>
 
 
 ---
